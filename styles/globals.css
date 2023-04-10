@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root html body {
+  box-sizing: border-box;
+}
+
+.main-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.ant-list-item-meta-title {
+  margin: 0;
+}
+.ant-list-item{
+  padding: 6px 0px;
+}
