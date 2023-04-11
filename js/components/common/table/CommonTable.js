@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Button, Form, Input, Popconfirm, Table } from "antd";
-import styles from "@/styles/Groups.module.css";
+import { Form, Input, Table } from "antd";
 import Confirmation from "../../metric-template/confirmation/Confirmation";
+import CustomButton from "../button/Button";
+import * as S from "./styles";
 
 const EditableContext = React.createContext(null);
 
@@ -106,14 +107,14 @@ const CommonTable = () => {
       render: (_, record) =>
         dataSource.length >= 1 ? (
           <>
-            <Button
+            <CustomButton
               type="link"
               onClick={() => {
                 setIsDelete(true);
               }}
             >
               Delete
-            </Button>
+            </CustomButton>
             <Confirmation
               title="Row"
               isModalOpen={isDelete}
@@ -131,6 +132,7 @@ const CommonTable = () => {
   ];
 
   const handleAdd = () => {
+    console.log("Count", count);
     const newData = {
       id: count,
       key: `${count}`,
@@ -175,8 +177,8 @@ const CommonTable = () => {
   });
 
   return (
-    <div className={styles.groupContainer}>
-      <Button
+    <S.tableContainer>
+      <CustomButton
         onClick={handleAdd}
         type="primary"
         style={{
@@ -184,7 +186,7 @@ const CommonTable = () => {
         }}
       >
         Add a row
-      </Button>
+      </CustomButton>
       <Table
         components={components}
         rowClassName={() => "editable-row"}
@@ -192,7 +194,7 @@ const CommonTable = () => {
         dataSource={dataSource}
         columns={columns}
       />
-    </div>
+    </S.tableContainer>
   );
 };
 export default CommonTable;

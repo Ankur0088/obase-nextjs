@@ -1,26 +1,32 @@
-import { Button, Modal } from "antd";
-import styles from "./Confirmation.module.css";
+import { Modal } from "antd";
+import CustomButton from "../../common/button/Button";
+import * as S from "./styles";
 
 const Confirmation = ({ title, name, isModalOpen, handleOk, handleCancel }) => {
+  function deleteHandler(handleOk, handleCancel) {
+    return (
+      <S.confirmationContainer>
+        <CustomButton key="submit" danger type="primary" onClick={() => handleOk()}>
+          Delete
+        </CustomButton>
+        <CustomButton key="back" onClick={() => handleCancel()}>
+          Cancel
+        </CustomButton>
+      </S.confirmationContainer>
+    );
+  }
   return (
     <Modal
       title={`Delete ${title}`}
       open={isModalOpen}
       onCancel={handleCancel}
-      footer={[
-        <Button key="submit" danger type="primary" onClick={() => handleOk()}>
-          Delete
-        </Button>,
-        <Button key="back" onClick={() => handleCancel()}>
-          Cancel
-        </Button>,
-      ]}
+      footer={[deleteHandler(handleOk, handleCancel)]}
     >
-      <div className={styles.modalBody}>
+      <S.modalBody>
         <span>
           Are you sure you want to delete {title} <b>{name}</b> ?
         </span>
-      </div>
+      </S.modalBody>
     </Modal>
   );
 };

@@ -1,37 +1,53 @@
 import { useState } from "react";
 import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
-import { Button } from "antd";
+import CustomButton from "../../common/button/Button";
 import Confirmation from "../confirmation/Confirmation";
-import styles from "./Header.module.css";
+import * as S from "./styles";
 
 const Header = ({ selectedMember, handleIsEdit, addNewMember, deleteMember }) => {
   const [isDelete, setIsDelete] = useState(false);
   return (
     <>
-      <div className={styles.headerContainer}>
-        <Button
+      <S.headerContainer>
+        <CustomButton
           disabled={!selectedMember?.id}
           type="text"
-          icon={<EditOutlined className={styles.pColor} />}
+          icon={
+            <S.pColor>
+              <EditOutlined />
+            </S.pColor>
+          }
           onClick={handleIsEdit}
         >
           Edit
-        </Button>
-        <Button type="text" icon={<PlusOutlined className={styles.pColor} />} onClick={addNewMember}>
+        </CustomButton>
+        <CustomButton
+          type="text"
+          icon={
+            <S.pColor>
+              <PlusOutlined />
+            </S.pColor>
+          }
+          onClick={addNewMember}
+        >
           New
-        </Button>
-        <Button
+        </CustomButton>
+        <CustomButton
           disabled={!selectedMember?.id}
           type="text"
           danger
-          icon={<DeleteOutlined />}
+          icon={
+            <S.dColor>
+              <DeleteOutlined />
+            </S.dColor>
+          }
           onClick={() => {
             setIsDelete(true);
           }}
         >
           Delete
-        </Button>
-      </div>
+        </CustomButton>
+      </S.headerContainer>
       <Confirmation
         title="Member"
         name={selectedMember?.name}

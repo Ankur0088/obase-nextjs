@@ -3,7 +3,7 @@ import { Input } from "antd";
 
 const InputField = (props) => {
   const {
-    name = 'name',
+    name = "name",
     placeholder,
     value,
     type,
@@ -15,8 +15,9 @@ const InputField = (props) => {
     suffix,
     maxLength,
     disabled,
-    onChange = () => { },
-    onBlur = () => { },
+    onPressEnter,
+    onChange = () => {},
+    onBlur = () => {},
   } = props;
 
   const ref = useRef();
@@ -38,6 +39,7 @@ const InputField = (props) => {
         suffix={suffix}
         maxLength={maxLength}
         disabled={disabled}
+        onPressEnter={onPressEnter}
       >
         {children}
       </Input>

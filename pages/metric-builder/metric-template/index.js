@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import styles from "@/styles/MetricTemplate.module.css";
+import { useState } from "react";
+import Category from "@/js/components/metric-template/category/Category";
 import Header from "@/js/components/metric-template/header/Header";
-import { ListData } from "@/js/constants/ListData";
 import SubMenu from "@/js/components/metric-template/sub-menu/SubMenu";
 import SubSidebar from "@/js/components/metric-template/sub-sidebar/SubSidebar";
-import Category from "@/js/components/metric-template/category/Category";
+import { ListData } from "@/js/constants/ListData";
+import * as S from "./styles";
 
 const MetricTemplate = () => {
   const [selectedMember, setSelectedMember] = useState(ListData[0]);
@@ -56,14 +56,14 @@ const MetricTemplate = () => {
   };
 
   return (
-    <div className={styles.metricTemplateContainer}>
+    <S.metricTemplateContainer>
       <Header
         selectedMember={selectedMember}
         handleIsEdit={() => setIsEdit(true)}
         addNewMember={addNewMember}
         deleteMember={deleteMember}
       />
-      <div className={styles.metricTemplateBody}>
+      <S.metricTemplateBody>
         <SubMenu />
         <SubSidebar
           selectedMember={selectedMember}
@@ -77,8 +77,8 @@ const MetricTemplate = () => {
           handleOnChange={handleOnChange}
           handleOnSubmit={handleOnSubmit}
         />
-      </div>
-    </div>
+      </S.metricTemplateBody>
+    </S.metricTemplateContainer>
   );
 };
 

@@ -1,6 +1,6 @@
 import { FilterOutlined, MenuOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
-import styles from "./SubMenu.module.css";
+import * as S from "./styles";
 
 const SubMenu = () => {
   const items = [
@@ -8,15 +8,9 @@ const SubMenu = () => {
     { key: "2", icon: <MenuOutlined /> },
   ];
   return (
-    <div className={styles.sidebar}>
-      <Menu
-        defaultSelectedKeys={["2"]}
-        mode="inline"
-        className={styles.menuStyle}
-        inlineCollapsed={true}
-        items={items}
-      />
-    </div>
+    <S.sidebar>
+      <Menu defaultSelectedKeys={["2"]} mode="inline" inlineCollapsed={true} items={items} />
+    </S.sidebar>
   );
 };
 

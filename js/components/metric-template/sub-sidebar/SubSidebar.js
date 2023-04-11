@@ -1,7 +1,8 @@
-import { SearchOutlined } from "@ant-design/icons";
-import { Input, List } from "antd";
 import { useEffect, useState } from "react";
-import styles from "./SubSidebar.module.css";
+import { SearchOutlined } from "@ant-design/icons";
+import { List } from "antd";
+import InputField from "../../common/input/Input";
+import * as S from "./styles";
 
 const SubSidebar = ({ selectedMember, memberList, handleSelectedMember }) => {
   const [searchText, setSearchText] = useState("");
@@ -21,8 +22,8 @@ const SubSidebar = ({ selectedMember, memberList, handleSelectedMember }) => {
   };
 
   return (
-    <div className={styles.subSidebar}>
-      <Input
+    <S.subSidebar>
+      <InputField
         placeholder="Filter"
         value={searchText}
         prefix={<SearchOutlined />}
@@ -30,22 +31,22 @@ const SubSidebar = ({ selectedMember, memberList, handleSelectedMember }) => {
           handleOnChange(e.target.value);
         }}
       />
-      <div className={styles.list}>
-        <List
+      <S.list>
+        <S.listContainer
           dataSource={members}
           renderItem={(item) => (
-            <List.Item
-              className={item.id === selectedMember.id ? styles.selected : styles.items}
+            <S.listItemContainer
+              isSelected={item.id === selectedMember.id}
               onClick={() => {
                 handleSelectedMember(item);
               }}
             >
-              <List.Item.Meta className={styles.itemsTitle} title={item.name} description={item.description} />
-            </List.Item>
+              <List.Item.Meta title={item.name} description={item.description} />
+            </S.listItemContainer>
           )}
         />
-      </div>
-    </div>
+      </S.list>
+    </S.subSidebar>
   );
 };
 

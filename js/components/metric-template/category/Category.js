@@ -1,15 +1,15 @@
 import { Input } from "antd";
 import CustomButton from "../../common/button/Button";
 import InputField from "../../common/input/Input";
-import styles from "./Category.module.css";
+import * as S from "./styles";
 
 const Category = ({ selectedMember, isAdd, isEdit, handleOnChange, handleOnSubmit }) => {
   return (
-    <div className={styles.programs}>
+    <S.programs>
       <h1>Metric Builder</h1>
-      <div className={styles.formContainer}>
+      <S.formContainer>
         <div>
-          <label className={styles.label}>Name : </label>
+          <label>Name : </label>
           <InputField
             placeholder="Name"
             name="name"
@@ -20,7 +20,7 @@ const Category = ({ selectedMember, isAdd, isEdit, handleOnChange, handleOnSubmi
           />
         </div>
         <div>
-          <label className={styles.label}>Description : </label>
+          <label>Description : </label>
           <Input.TextArea
             rows={4}
             name="description"
@@ -32,13 +32,13 @@ const Category = ({ selectedMember, isAdd, isEdit, handleOnChange, handleOnSubmi
             disabled={!isEdit && !isAdd}
           />
         </div>
-        <div className={styles.submitBtn}>
+        <S.submitBtn>
           <CustomButton disabled={!isEdit && !isAdd} onClick={handleOnSubmit}>
             Submit
           </CustomButton>
-        </div>
-      </div>
-    </div>
+        </S.submitBtn>
+      </S.formContainer>
+    </S.programs>
   );
 };
 

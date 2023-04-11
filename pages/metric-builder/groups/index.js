@@ -1,5 +1,5 @@
-import CommonTable from "@/js/components/common/table/CommonTable";
 import React from "react";
+import CommonTable from "@/js/components/common/table/CommonTable";
 
 const Groups = () => {
   return <CommonTable />;
