@@ -1,12 +1,12 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react"
-
 export default function Home() {
-
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push('metric-builder/metric-template');
-  }, []);
-
+  return <></>;
+}
+export async function getServerSideProps(context) {
+  return {
+    redirect: {
+      permanent: false,
+      destination: "/metric-builder/metric-template",
+    },
+    props: {}, // will be passed to the page component as props
+  };
 }

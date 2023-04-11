@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FLEX } from "../../common/styles";
+import { FLEX } from "../../../../styles/common/common.style";
 
 export const headerContainer = styled.div`
   height: 35px;

@@ -1,5 +1,5 @@
-import { FLEX } from "@/js/components/common/styles";
 import styled from "styled-components";
+import { FLEX } from "../common/common.style";
 
 export const metricTemplateContainer = styled.div`
   flex: 1;

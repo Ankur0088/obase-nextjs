@@ -1,4 +1,4 @@
-import { FLEX } from "@/js/components/common/styles";
+import { FLEX } from "@/styles/common/common.style";
 import styled from "styled-components";
 
 export const mainContainer = styled.div`

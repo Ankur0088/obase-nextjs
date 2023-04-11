@@ -3,7 +3,7 @@ import { Input } from "antd";
 
 const InputField = (props) => {
   const {
-    name = "name",
+    name,
     placeholder,
     value,
     type,

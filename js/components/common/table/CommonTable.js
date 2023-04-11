@@ -100,6 +100,7 @@ const CommonTable = () => {
     {
       title: "name",
       dataIndex: "name",
+      editable: true,
     },
     {
       title: "operation",
@@ -108,6 +109,7 @@ const CommonTable = () => {
         dataSource.length >= 1 ? (
           <>
             <CustomButton
+              danger
               type="link"
               onClick={() => {
                 setIsDelete(true);
@@ -132,7 +134,6 @@ const CommonTable = () => {
   ];
 
   const handleAdd = () => {
-    console.log("Count", count);
     const newData = {
       id: count,
       key: `${count}`,

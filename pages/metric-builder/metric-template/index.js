@@ -4,7 +4,7 @@ import Header from "@/js/components/metric-template/header/Header";
 import SubMenu from "@/js/components/metric-template/sub-menu/SubMenu";
 import SubSidebar from "@/js/components/metric-template/sub-sidebar/SubSidebar";
 import { ListData } from "@/js/constants/ListData";
-import * as S from "./styles";
+import * as S from "@/styles/pages/metric.template.style.js";
 
 const MetricTemplate = () => {
   const [selectedMember, setSelectedMember] = useState(ListData[0]);
